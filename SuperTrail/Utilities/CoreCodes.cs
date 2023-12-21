@@ -58,7 +58,7 @@ namespace BeatXP.Utilities
                 }
             }
         }
-        public void TakeScreenShot()
+        public string TakeScreenShot()
         {
             ITakesScreenshot screenshot = (ITakesScreenshot)driver;
             Screenshot ss = screenshot.GetScreenshot();
@@ -66,7 +66,7 @@ namespace BeatXP.Utilities
             string filepath = currdir + "/Screenshot/ss_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".png";
             ss.SaveAsFile(filepath);
-            Console.WriteLine("Screenshot captured");
+            return filepath;
         }
         [OneTimeSetUp]
         public void InitializeBrowser()
